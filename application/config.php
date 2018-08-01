@@ -244,4 +244,5 @@ return [
     // 还可以定义其它的HTTP status
     401 =>  APP_PATH.'401.html',
     ]
+//    自定义配置
 ];

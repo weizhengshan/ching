@@ -145,6 +145,19 @@ p.cue {
  cursor: pointer;
  -webkit-appearance: none;
 }
+.btn:hover {
+ display: inline-block;
+ background-color: #0072C6;
+ -moz-border-radius: 2px;
+ -webkit-border-radius: 2px;
+ border: 0;
+ color: #FFF;
+ padding: 6px 15px;
+ font-weight: bold;
+ text-transform: capitalize;
+ cursor: pointer;
+ -webkit-appearance: none;
+}
 .btnGray {
  display: inline-block;
  background-color: #EEE;
@@ -238,8 +251,8 @@ select {
 .tableBasic {
  background-color: #F9F9F9;
  color: #666666;
- border-left: 1px dotted #CCCCCC;
- border-top: 1px dotted #CCCCCC;
+ border-left: 1px solid #CCCCCC;
+ border-top: 1px solid #CCCCCC;
 }
 
 .tableBasic tr:nth-child(even){

@@ -15,10 +15,7 @@ class Manage  extends Common
        // print_r($managerinfo);
         $this->assign('data',$data);
         //导航管理
-         $daoh=$this->auth_group();
-        $this->assign('daoh',$daoh);
-        $ssname=Session::get('admin_username');
-        $this->assign('ssname',$ssname);
+        $this->base();
         //halt($data);
         return $this->fetch();
     }
@@ -44,10 +41,7 @@ class Manage  extends Common
         //权限管理
         $roledata=db('auth_group')->where('status',1)->select();
         //导航管理
-        $daoh=$this->auth_group();
-        $ssname=Session::get('admin_username');
-        $this->assign('ssname',$ssname);
-        $this->assign('daoh',$daoh);
+         $this->base();
 	   $this->assign('roledata',$roledata);
 	   //halt($admin);
        if(request()->isPost())
@@ -73,11 +67,7 @@ class Manage  extends Common
 		$data=db('user')->where('admin_id',$admin['admin_id'])->find();
 		$this->assign('data',$data);
 		//导航管理
-        $daoh=$this->auth_group();
-        $ssname=Session::get('admin_username');
-        $this->assign('ssname',$ssname);
-        $this->assign('daoh',$daoh);
-		
+        $this->base();
 		 //权限管理
         $roledata=db('auth_group')->where('status',1)->select();
 

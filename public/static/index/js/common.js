@@ -24,14 +24,15 @@ $(function () {
     	$(".bg-marker").css("display","block")
 		$(".qidai").css("display","block")
     })
-    var _height=parseInt($(window).height())-parseInt($("#header").css("height"))-parseInt($("#footer").css("height"))
+    var _height=parseInt(window.innerHeight)-parseInt($("#header").css("height"))-parseInt($("#footer").css("height"))
+    var _width=parseInt($("#main_newslist").css("width"))
     if(navigator.userAgent.match(/mobile/i)) {  
         
    		$(".nolist").css("min-height",_height+60+"px")
    		$("#main_newslist").css("min-height",_height+60+"px")
     }else{
-    	$(".nolist").css("min-height",_height+60+"px")
-    	$("#main_newslist").css("min-height",_height+60+"px")
+    	$(".nolist").css("min-height",_height-20+"px")
+    	$("#main_newslist").css("min-height",_height+"px")
     }
 })
 function pageScroll(){ 

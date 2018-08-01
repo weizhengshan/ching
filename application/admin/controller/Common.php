@@ -51,14 +51,26 @@ class Common  extends Controller
         $dao=explode(",",$arr['rules']);
         //print_r($dao);echo "<hr>";
         $daoh=db('auth_rule')->where('status',1)->whereIn('id',$dao)->where('level',0)->field('name,title')->order('sort')->select();
-        //halt($daoh);
+//        halt($daoh);
        return $daoh;
     }
+    public function action(){
+        $request = request()->pathinfo();
+        $str = substr($request,6 );
+        $controller = substr($str,0 ,strpos($str,'/') );
+        $action = request()->action();
+        $name = $controller . '/' .$action;
+//        halt($name);
+        return $name;
+    }
+
     //网址公共信息
     public function base()
     {
       //导航管理
          $daoh=$this->auth_group();
+        $action=$this->action();
+        $this->assign('action',$action);
         $this->assign('daoh',$daoh);
         $ssname=Session::get('admin_username');
         $this->assign('ssname',$ssname);

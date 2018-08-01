@@ -1,4 +1,4 @@
-$("#nav").on("click",".nav_span",function(){
+$("#platNav").on("click",".nav_span",function(){
 	var _attr=$(this).attr("_attr");
 	if(_attr==0){
 		$(".nav_span").removeClass("kai");
@@ -13,7 +13,7 @@ $("#nav").on("click",".nav_span",function(){
 		$(this).attr("_attr","0");
 	}
 })
-$("#nav").on("click",".nav_span_1",function(){
+$("#platNav").on("click",".nav_span_1",function(){
 	var _attr=$(this).attr("_attr")
 	if(_attr==0){
 		$(".nav_span_1").removeClass("kai");
@@ -28,7 +28,7 @@ $("#nav").on("click",".nav_span_1",function(){
 		$(this).attr("_attr","0")
 	}
 })
-$("#nav").on("click",".switch",function(){
+$("#platNav").on("click",".switch",function(){
 	var _id=$(this).attr("_id");
 	var _attr=$(this).attr("_attr");
 		var _name=$(this).attr("_name");
@@ -53,24 +53,24 @@ $("#nav").on("click",".switch",function(){
 		$(".main_3").slideDown();
 	}
 })
-$("#nav").on("change",".input_file",function(){
+$("#platNav").on("change",".input_file",function(){
     $(this).prev("input").val($(this).val())
 })
 
-$("#nav").on("click",".add",function(){
+$("#dcMain").on("click",".add",function(){
 	getSelectData();
 	$(this).hide();
 	$(this).next().show();
 	$(".data_type").slideDown();
 	$(".tableBasic").slideUp();
 })
-$("#nav").on("click",".goBack",function(){
+$("#dcMain").on("click",".goBack",function(){
 	$(this).hide();
 	$(this).prev().show();
 	$(".data_type").slideUp();
 	$(".tableBasic").slideDown();
 })
-$("#nav").on("click",".submit",function(){
+$("#platNav").on("click",".submit",function(){
 	var name=$(this).parents("table").find(".name").val()
 	if(name==""){
 		taostr("请填写名称",1000);
@@ -97,7 +97,7 @@ $("#nav").on("click",".submit",function(){
 	
 })
 //修改
-$("#nav").on("click",".operation",function(){
+$("#platNav").on("click",".operation",function(){
 	var id=$(this).attr("_id")
 	getSelectNoOwn(id)
 	modifyPlatformData(id)
@@ -106,7 +106,7 @@ $("#nav").on("click",".operation",function(){
 	$(".data_type").slideDown()
 	$(".tableBasic").slideUp()
 })
-$("#nav").on("click",".first_span",function(){
+$("#platNav").on("click",".first_span",function(){
 	var that=this;
 	var _attr=$(this).attr("_attr")
 	var _id=parseInt($(this).attr("_id"))
@@ -122,12 +122,19 @@ $("#nav").on("click",".first_span",function(){
 	}
 	
 })
-$("#nav").on("click",".undercarriage",function(){
+$("#platNav").on("click",".undercarriage",function(){
 	var that = this;
 	var _id=parseInt($(this).attr("_id"))
 	delPlatformData(that,_id)
 })
 
+
+//设置页面主体的最小高度
+mainHeight()
+function mainHeight() {
+    var menuHeight=$("#menu").css("height");
+    $("#platNav").css("min-height",menuHeight)
+}
 
 getPlatformData()
 //添加、更新
@@ -190,11 +197,11 @@ function addPlatformData(data)
       var str='';
       for(var i=0;i<res.length;i++){
       	str+='<div>'
-				+'<span class="first_span" _attr="0" _id="'+(_id+1)+'" platform_id="'+res[i].platform_id+'" style="background-position: '+(5+_id*20)+'px 20px;padding-left: '+(20+_id*20)+'px;">'+res[i].platform_name+'</span>'
+				+'<span class="first_span" _attr="0" _id="'+(_id+1)+'" platform_id="'+res[i].platform_id+'" style="background-position: '+(5+_id*20)+'px 12px;padding-left: '+(20+_id*20)+'px;">'+res[i].platform_name+'</span>'
 				+'<span>'+(i+1)+'</span>'
 				+'<span>'+res[i].platform_dec+'</span>'
 				+'<span>'+res[i].sort+'</span>'
-				+'<span><a class="operation" _id="'+res[i].platform_id+'">修改</a>|<a class="undercarriage"  _id="'+res[i].platform_id+'">下架</a></span>'
+				+'<span><a class="operation layui-btn layui-btn-sm" _id="'+res[i].platform_id+'">修改</a><a class="undercarriage layui-btn layui-btn-sm"  _id="'+res[i].platform_id+'">下架</a></span>'
 			+'</div>'
 			+'<ol class="ol">'
 				+'<li>'
@@ -338,11 +345,11 @@ function getPlatformData()
         for(var i=0;i<res.length;i++){
         	str+='<li>'
 					+'<div>'
-						+'<span class="first_span" _attr="0" _id="1" platform_id="'+res[i].platform_id+'" style="background-position: 5px 20px;padding-left: 20px;">'+res[i].platform_name+'</span>'
+						+'<span class="first_span" _attr="0" _id="1" platform_id="'+res[i].platform_id+'" style="background-position: 5px 12px;padding-left: 20px;">'+res[i].platform_name+'</span>'
 						+'<span>'+(i+1)+'</span>'
 						+'<span>'+res[i].platform_dec+'</span>'
 						+'<span>'+res[i].sort+'</span>'
-						+'<span><a class="operation" _id="'+res[i].platform_id+'">修改</a>|<a class="undercarriage"  _id="'+res[i].platform_id+'">下架</a></span>'
+						+'<span><a class="operation layui-btn layui-btn-sm" _id="'+res[i].platform_id+'">修改</a><a class="undercarriage layui-btn layui-btn-sm"  _id="'+res[i].platform_id+'">下架</a></span>'
 					+'</div>'
 					+'<ol class="ol">'
 						+'<li>'
@@ -354,4 +361,4 @@ function getPlatformData()
         $(".platformList").html(str)
     }
   });  
-  } 
+  }

@@ -13,10 +13,7 @@ class System  extends Common
        $info=db('config')->find();
         $this->assign('info',$info);
         //导航管理
-        $daoh=$this->auth_group();
-        $ssname=Session::get('admin_username');
-        $this->assign('ssname',$ssname);
-        $this->assign('daoh',$daoh);
+        $this->base();
         return $this->fetch();
     }
     //提交方法
@@ -45,10 +42,7 @@ class System  extends Common
         $this->assign('info',$info);
 
         //导航管理
-        $daoh=$this->auth_group();
-        $ssname=Session::get('admin_username');
-        $this->assign('ssname',$ssname);
-        $this->assign('daoh',$daoh);
+        $this->base();
         return $this->fetch();
     }
     public function system_eadd()

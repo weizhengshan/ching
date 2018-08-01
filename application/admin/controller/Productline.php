@@ -14,10 +14,7 @@ class Productline  extends Common
       $page=input('param.page');//当前页默认为第一页;
       $pageSize=10;//每页显示条数为5条；
       //导航管理
-        $daoh=$this->auth_group();
-        $ssname=Session::get('admin_username');
-        $this->assign('ssname',$ssname);
-        $this->assign('daoh',$daoh);
+        $this->base();
       $pid=input('param.pid');
         $prod_add=new B();
         //获得自己和自己的子集
@@ -59,10 +56,6 @@ class Productline  extends Common
           }
         $data=db()->table('qy_products a, qy_protypes b')->where('a.protype_pid = b.protype_id')->field('a.prod_id,a.prod_title,a.prod_img,a.createtime,b.protype_name')->where('prod_states',1)->order('a.prod_id desc' )->page($page,$pageSize)->select();
       }
-     
-     //halt($data); 
-       
-        //halt($page);
         $this->assign('pid',$pid);
        $this->assign('totalRows',$totalRows);
       $this->assign('page',$page);
@@ -90,10 +83,7 @@ class Productline  extends Common
     {
       //halt($_POST);
       //导航管理
-        $daoh=$this->auth_group();
-        $ssname=Session::get('admin_username');
-        $this->assign('ssname',$ssname);
-        $this->assign('daoh',$daoh);
+        $this->base();
        //获得分类
       /* $prodinfo=db('protypes')->select();
          $arr=$this->GetTree($prodinfo, 0, 0);
@@ -124,10 +114,7 @@ class Productline  extends Common
           /*17/12/1*/
         $this->get_protype();
      //导航管理
-        $daoh=$this->auth_group();
-        $ssname=Session::get('admin_username');
-        $this->assign('ssname',$ssname);
-        $this->assign('daoh',$daoh);
+        $this->base();
         $id=input('param.prod_id');
         //获得要修改的内容
         $data=db('products')->where('prod_id',$id)->find();

@@ -12,11 +12,7 @@ class AuthRule  extends Common
 		$authRuleRes=$authRule->authRuleTree();
         //halt($authRuleRes);
          //导航管理
-        $daoh=$this->auth_group();
-        $ssname=Session::get('admin_username');
-        $this->assign('ssname',$ssname);
-        $this->assign('daoh',$daoh);
-
+        $this->base();
 		$this->assign('authRuleRes',$authRuleRes);
     	return $this->fetch();
     }
@@ -26,10 +22,7 @@ class AuthRule  extends Common
     	$authRule=new A();
 		$authRuleRes=$authRule->authRuleTree();
          //导航管理
-         $daoh=$this->auth_group();
-         $ssname=Session::get('admin_username');
-        $this->assign('ssname',$ssname);
-        $this->assign('daoh',$daoh);
+        $this->base();
 		$this->assign('authRuleRes',$authRuleRes);
 		if(request()->isPost())
         {
@@ -51,10 +44,7 @@ class AuthRule  extends Common
     	$authRule=new A();
 		$authRuleRes=$authRule->getSon($id);
          //导航管理
-         $daoh=$this->auth_group();
-         $ssname=Session::get('admin_username');
-        $this->assign('ssname',$ssname);
-        $this->assign('daoh',$daoh);
+        $this->base();
 		//查询自己和自己的子集
 		$this->assign('authRuleRes',$authRuleRes);
 		

@@ -31,10 +31,7 @@ class Leaving  extends Common
        //halt($leavinfo);
         $this->assign('leavinfo',$leavinfo);
         //导航管理
-        $daoh=$this->auth_group();
-        $ssname=Session::get('admin_username');
-        $this->assign('ssname',$ssname);
-        $this->assign('daoh',$daoh);
+        $this->base();
        // halt($leavinfo);
         $this->assign('totalRows',$totalRows);
       $this->assign('page',$page);
@@ -51,10 +48,7 @@ class Leaving  extends Common
     $data=db('leaving')->where('leav_id',$admin)->field('email')->find();
     $this->assign('email',$data['email']);
        //导航管理
-        $daoh=$this->auth_group();
-        $ssname=Session::get('admin_username');
-        $this->assign('ssname',$ssname);
-        $this->assign('daoh',$daoh);
+       $this->base();
 
      return $this->fetch();
   }

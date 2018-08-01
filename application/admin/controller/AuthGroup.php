@@ -12,10 +12,8 @@ class AuthGroup  extends Common
 		$this->assign('data',$data);
 		//halt($data);
         //导航管理
-        $daoh=$this->auth_group();
-        $ssname=Session::get('admin_username');
-        $this->assign('ssname',$ssname);
-        $this->assign('daoh',$daoh);
+        $this->base();
+//        halt($action);
     	return $this->fetch();
     }
     //权限增加页
@@ -25,10 +23,8 @@ class AuthGroup  extends Common
         $data=$authRule->authRuleTree();
 		$this->assign('data',$data);
         //导航管理
-        $daoh=$this->auth_group();
-        $ssname=Session::get('admin_username');
-        $this->assign('ssname',$ssname);
-        $this->assign('daoh',$daoh);
+        $this->base();
+
 		if(request()->isPost())
         {
 				//halt($_POST);
@@ -56,10 +52,8 @@ class AuthGroup  extends Common
         }
         $authgroups=db('auth_group')->find(input('id'));
         //导航管理
-        $daoh=$this->auth_group();
-        $ssname=Session::get('admin_username');
-        $this->assign('ssname',$ssname);
-        $this->assign('daoh',$daoh);
+        $this->base();
+        
         $this->assign('authgroups',$authgroups);
         $authRule=new \app\common\model\AuthRule();
         $authRuleRes=$authRule->authRuleTree();

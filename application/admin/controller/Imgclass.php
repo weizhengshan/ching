@@ -51,10 +51,7 @@ class Imgclass  extends Common
        //print_r($logodata);
         $this->assign('logodata',$logodata);
 		//导航管理
-        $daoh=$this->auth_group();
-        $ssname=Session::get('admin_username');
-        $this->assign('ssname',$ssname);
-        $this->assign('daoh',$daoh);
+        $this->base();
         $this->assign('imgsize',$imgsize);
 		if(request()->isPost())
             {
@@ -105,10 +102,7 @@ class Imgclass  extends Common
 		$carodata=db('carousel')->where('caro_states',1)->where('pid',$pid)->select();
         $this->assign('carodata',$carodata);
         //导航管理
-        $daoh=$this->auth_group();
-        $ssname=Session::get('admin_username');
-        $this->assign('ssname',$ssname);
-        $this->assign('daoh',$daoh);
+        $this->base();
         $this->assign('dataname',$dataname);
         $this->assign('pid',$pid);
 		return $this->fetch();
@@ -266,10 +260,7 @@ class Imgclass  extends Common
         $this->assign('pid',$pid);
         $this->assign('dataname',$dataname);
         //导航管理
-        $daoh=$this->auth_group();
-        $ssname=Session::get('admin_username');
-        $this->assign('ssname',$ssname);
-        $this->assign('daoh',$daoh);
+        $this->base();
 		//修改信息
 
 		$caro=input('param.');

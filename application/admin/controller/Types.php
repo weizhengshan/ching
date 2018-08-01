@@ -16,10 +16,7 @@ class Types  extends Common
        
         $this->assign('arr',$arr);
         //导航管理
-        $daoh=$this->auth_group();
-        $ssname=Session::get('admin_username');
-        $this->assign('ssname',$ssname);
-        $this->assign('daoh',$daoh);
+        $this->base();
         return $this->fetch();
     }
     //提交方法
@@ -32,10 +29,7 @@ class Types  extends Common
        //$data=$this->getTree($typesdata,$pid='type_pid');
        $arr=$this->GetTree($typesdata, 0, 0);
        //导航管理
-        $daoh=$this->auth_group();
-        $ssname=Session::get('admin_username');
-        $this->assign('ssname',$ssname);
-        $this->assign('daoh',$daoh);
+        $this->base();
       $this->assign('arr',$arr); 
 		  //添加
 		    if(request()->isPost())
@@ -58,10 +52,7 @@ class Types  extends Common
     public function type_edit()
     {
       //导航管理
-        $daoh=$this->auth_group();
-        $ssname=Session::get('admin_username');
-        $this->assign('ssname',$ssname);
-        $this->assign('daoh',$daoh);
+        $this->base();
         $admin=input('param.');
       //获得不是自己和自己的子类
         if($admin['type_id'])

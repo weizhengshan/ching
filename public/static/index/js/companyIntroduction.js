@@ -24,14 +24,14 @@ $(function () {
    	$(".main_4").css("display","block");
    }
    })*/
-    var _height=parseInt($(window).height())-parseInt($("#header").css("height"))-parseInt($("#footer").css("height"))
+    var _height=parseInt(window.innerHeight)-parseInt($("#header").css("height"))-parseInt($("#footer").css("height"))
     if(navigator.userAgent.match(/mobile/i)) {  
         $("#main_newsdetails").css("min-height",_height+60+"px")
    		
    		$(".nolist").css("min-height",_height+60+"px")
     }else{
     	 $("#main_newsdetails").css("min-height",_height+"px")
-    	 $(".nolist").css("min-height",_height+60+"px")
+    	 $(".nolist").css("min-height",_height-20+"px")
     }
   
   

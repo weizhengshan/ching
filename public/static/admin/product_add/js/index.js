@@ -1,5 +1,5 @@
 
-$("#nav").on("click",".add",function(){
+$("#dcMain").on("click",".add",function(){
 	getSelectData();
 	$(this).hide();
 	$(this).next().show();
@@ -8,7 +8,7 @@ $("#nav").on("click",".add",function(){
 	$(".main_2").slideUp();
 	$(".main_1").slideUp();
 })
-$("#nav").on("click",".goBack",function(){
+$("#dcMain").on("click",".goBack",function(){
 	$(this).hide();
 	$(this).prev().show();
 	$(".main_3").slideUp();
@@ -16,7 +16,7 @@ $("#nav").on("click",".goBack",function(){
 	$(".main_2").slideUp();
 	$(".main_1").slideUp();
 })
-$("#nav").on("click",".secondary",function(){
+$("#priceNav").on("click",".secondary",function(){
 	var id=$(this).attr("platform_id")
 	var name=$(this).text()
 	var text=$(this).text()
@@ -29,7 +29,7 @@ $("#nav").on("click",".secondary",function(){
 $("#hideBox").on("click",".closeA",function(){
 	$("#hideBox").hide();
 });
-$("#nav").on("click",".submit",function(){
+$("#priceNav").on("click",".submit",function(){
 	var name=$(this).parents("table").find(".name").val();
 	if(name==""){
 		taostr("请填写名称",1000);
@@ -59,7 +59,7 @@ $("#nav").on("click",".submit",function(){
 	
 })
 //修改
-$("#nav").on("click",".operation",function(){
+$("#priceNav").on("click",".operation",function(){
 	var id=$(this).attr("_id");
 	getSelectNoOwn(id);
 	modifyPlatformData(id);
@@ -70,7 +70,7 @@ $("#nav").on("click",".operation",function(){
 	$(".main_2").slideUp();
 	$(".main_1").slideUp();
 })
-$("#nav").on("click",".first_span",function(){
+$("#priceNav").on("click",".first_span",function(){
 	var that=this;
 	var _attr=$(this).attr("_attr");
 	var _id=parseInt($(this).attr("_id"));
@@ -99,7 +99,7 @@ $(".searchProcess").click(function () {
 
 
 
-$("#nav").on("click",".submits",function(){
+$("#priceNav").on("click",".submits",function(){
 	var wholesale=$(this).parents("table").find(".wholesale").val();
 	if(wholesale==""){
 		taostr("请填写批发价格",1000);
@@ -128,9 +128,17 @@ $("#nav").on("click",".submits",function(){
 	addTimeData(data)
 	
 })
-$("#nav").on("click",".area_select",function(){
+$("#priceNav").on("click",".area_select",function(){
 	$("#addressChose").show();
 })
+
+//设置页面主体的最小高度
+mainHeight()
+function mainHeight() {
+    var menuHeight=$("#menu").css("height");
+    $("#priceNav").css("min-height",menuHeight)
+}
+
 
 
 getPlatformData();
@@ -181,11 +189,11 @@ function addPlatformData(data)
       var str='';
       for(var i=0;i<res.length;i++){
       	str+='<div>'+
-				'<span class="first_span secondary" _attr="0" _id="'+(_id+1)+'" platform_id="'+res[i].record_id+'" style="background-position: '+(5+_id*20)+'px 20px;padding-left: '+(20+_id*20)+'px;">'+res[i].record_name+'</span>'+
+				'<span class="first_span secondary" _attr="0" _id="'+(_id+1)+'" platform_id="'+res[i].record_id+'" style="background-position: '+(5+_id*20)+'px 12px;padding-left: '+(20+_id*20)+'px;">'+res[i].record_name+'</span>'+
 				'<span>'+(i+1)+'</span>'+
 				'<span>'+res[i].record_dec+'</span>'+
 				'<span>'+res[i].sort+'</span>'+
-				'<span><a class="operation" _id="'+res[i].record_id+'">修改</a>|<a class="undercarriage"  _id="'+res[i].record_id+'">下架</a></span>'+
+				'<span><a class="operation layui-btn layui-btn-sm" _id="'+res[i].record_id+'">修改</a><a class="undercarriage layui-btn layui-btn-sm"  _id="'+res[i].record_id+'">下架</a></span>'+
 			'</div>'+
 			'<ol class="ol">'+
 				'<li>'+
@@ -279,11 +287,11 @@ function getPlatformData()
         for(var i=0;i<res.length;i++){
         	str+='<li>'
 					+'<div>'
-						+'<span class="first_span" _attr="0" _id="1" platform_id="'+res[i].record_id+'" style="background-position: 5px 20px;padding-left: 20px;">'+res[i].record_name+'</span>'
+						+'<span class="first_span" _attr="0" _id="1" platform_id="'+res[i].record_id+'" style="background-position: 5px 12px;padding-left: 20px;">'+res[i].record_name+'</span>'
 						+'<span>'+(i+1)+'</span>'
 						+'<span>'+res[i].record_dec+'</span>'
 						+'<span>'+res[i].sort+'</span>'
-						+'<span><a class="operation" _id="'+res[i].record_id+'">修改</a>|<a class="undercarriage"  _id="'+res[i].record_id+'">下架</a></span>'
+						+'<span><a class="operation layui-btn layui-btn-sm" _id="'+res[i].record_id+'">修改</a><a class="undercarriage layui-btn layui-btn-sm"  _id="'+res[i].record_id+'">下架</a></span>'
 					+'</div>'
 					+'<ol class="ol">'
 						+'<li>'

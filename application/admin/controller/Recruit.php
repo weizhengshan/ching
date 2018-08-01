@@ -13,20 +13,14 @@ class Recruit  extends Common
         $this->assign('data',$data);
         //halt($data);
         //导航管理
-        $daoh=$this->auth_group();
-        $ssname=Session::get('admin_username');
-        $this->assign('ssname',$ssname);
-        $this->assign('daoh',$daoh);
+        $this->base();
         return $this->fetch();
     }
     //提交方法
     public function rec_add()
     {
         //导航管理
-        $daoh=$this->auth_group();
-        $ssname=Session::get('admin_username');
-        $this->assign('ssname',$ssname);
-        $this->assign('daoh',$daoh);
+        $this->base();
 
         //添加
         if(request()->isPost())
@@ -51,11 +45,7 @@ class Recruit  extends Common
       $this->assign('data',$data);
 
       //导航管理
-        $daoh=$this->auth_group();
-        $ssname=Session::get('admin_username');
-        $this->assign('ssname',$ssname);
-        $this->assign('daoh',$daoh);
-
+        $this->base();
        //修改
         if(request()->isPost())
             {

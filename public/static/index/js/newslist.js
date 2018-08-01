@@ -19,15 +19,15 @@ $(function () {
    	$(".main_4").css("display","none");
    }
    })*/
-   var _height=parseInt($(window).height())-parseInt($("#header").css("height"))-parseInt($("#footer").css("height"))
+   var _height=parseInt(window.innerHeight)-parseInt($("#header").css("height"))-parseInt($("#footer").css("height"))
     if(navigator.userAgent.match(/mobile/i)) {  
-        $("#main").css("min-height",_height+60+"px")
+        $("#main_newslist").css("min-height",_height+60+"px")
    		$(".nolist").css("min-height",_height+60+"px")
     }else{
-    	 $("#main").css("min-height",_height+"px")
-  		 $(".nolist").css("min-height",_height+"px")
+    	 $("#main_newslist").css("min-height",_height+"px")
+  		 $(".nolist").css("min-height",_height-20+"px")
     }
-    var __height=parseInt($(window).height())-parseInt($("#header").css("height"))-parseInt($("#footer").css("height"))-parseInt($("#nav_newslist").css("height"))-parseInt($(".recruitment_title").css("height"))
+    var __height=parseInt(window.innerHeight)-parseInt($("#header").css("height"))-parseInt($("#footer").css("height"))-parseInt($("#nav_newslist").css("height"))-parseInt($(".recruitment_title").css("height"))
     //console.log(__height)
   	$(".recruitment_content ul").css("min-height",__height)
   	

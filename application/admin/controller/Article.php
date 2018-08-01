@@ -63,12 +63,9 @@ class Article  extends Common
        $this->assign('data',$data);
 
        //导航管理
-        $daoh=$this->auth_group();
-        $ssname=Session::get('admin_username');
-        $this->assign('ssname',$ssname);
-        $this->assign('daoh',$daoh);
+        $this->base();
         return $this->fetch();
-    }
+}
     //提交方法
     public function article_add()
     {
@@ -78,10 +75,7 @@ class Article  extends Common
        $arr=$this->GetTree($typesdata, 0, 0);
        $this->assign('arr',$arr);
        //导航管理
-        $daoh=$this->auth_group();
-        $ssname=Session::get('admin_username');
-        $this->assign('ssname',$ssname);
-        $this->assign('daoh',$daoh);
+        $this->base();
 
        //提交数据
        if(request()->isPost())
@@ -107,10 +101,7 @@ class Article  extends Common
        $arr=$this->GetTree($typesdata, 0, 0);
        $this->assign('arr',$arr);
        //导航管理
-        $daoh=$this->auth_group();
-        $ssname=Session::get('admin_username');
-        $this->assign('ssname',$ssname);
-        $this->assign('daoh',$daoh);
+        $this->base();
        //获得要修改的信息
        $id=input('param.cont_id');
        $data=db('contents')->where('cont_id',$id)->find();

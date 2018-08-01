@@ -11,15 +11,15 @@ class Index  extends Common
 {
     public function index()
     {
-
-         $id=input('param.id');
-
+        $id=input('param.id');
         $this->assign('id',$id);
         //导航管理
         $daoh=$this->auth_group();
+        $action=$this->action();
         $ssname=Session::get('admin_username');
         $this->assign('ssname',$ssname);
         $this->assign('daoh',$daoh);
+        $this->assign('action',$action);
         return $this->fetch();
     }
     public function logout()

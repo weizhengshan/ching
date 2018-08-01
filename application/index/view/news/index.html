@@ -2,13 +2,14 @@
  {block name="content"}
 		{include file="public:xdao" /}
 		<div id="main_newslist">
+			<canvas id="demo-canvas" class="demo-canvas"></canvas>
 			{if condition="$newdata != NULL "}
 			<div class="introduction main_1 show"  >
 				<ul>
 					 {volist name="newdata" id="son"}
 					<li>
 						<a href="{:url('index/news/info',['id'=>$son.cont_id,'type_id'=>$son.cont_pid])}">
-							<div><img src="{$son.cont_img}"/></div>
+							<div class="imgBox"><img src="{$son.cont_img}"/></div>
 							<div class="news_index_main_main">
 								<h3>{$son.cont_title}</h3>
 								<h4 class="clear">

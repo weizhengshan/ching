@@ -11,10 +11,7 @@ class Recycle  extends Common
         $data=db('user')->where('states',0)->select();
         $this->assign('data',$data);
         //导航管理
-        $daoh=$this->auth_group();
-        $ssname=Session::get('admin_username');
-        $this->assign('ssname',$ssname);
-        $this->assign('daoh',$daoh);
+        $this->base();
         return $this->fetch();
     }
 
@@ -29,10 +26,7 @@ class Recycle  extends Common
       $this->assign('count',$count);
        $this->assign('data',$data);
        //导航管理
-        $daoh=$this->auth_group();
-        $ssname=Session::get('admin_username');
-        $this->assign('ssname',$ssname);
-        $this->assign('daoh',$daoh);
+        $this->base();
         return $this->fetch();
     }
   
@@ -48,10 +42,7 @@ class Recycle  extends Common
         $this->assign('count',$count);
         $this->assign('data',$data);
         //导航管理
-        $daoh=$this->auth_group();
-        $ssname=Session::get('admin_username');
-        $this->assign('ssname',$ssname);
-        $this->assign('daoh',$daoh);
+       $this->base();
         return $this->fetch();
    }
    //产品分类
@@ -60,10 +51,7 @@ class Recycle  extends Common
       $carodata=db('carousel')->where('caro_states',0)->select();
         $this->assign('carodata',$carodata);
         //导航管理
-        $daoh=$this->auth_group();
-        $ssname=Session::get('admin_username');
-        $this->assign('ssname',$ssname);
-        $this->assign('daoh',$daoh);
+       $this->base();
       return $this->fetch();
    }
   //无限级分类
