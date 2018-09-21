@@ -10,7 +10,6 @@ class CountyArea extends Common
     public function index()
     {
         $this->base();
-
         $typesdata = db('countys')->where('county_states', 1)->order('county_sort')->select();
         $arr = $this->GetTree($typesdata, 0, 0);
         $this->assign('arr', $arr);
@@ -26,14 +25,14 @@ class CountyArea extends Common
         $arr = $this->GetTree($typesdata, 0, 0);
         $this->assign('arr', $arr);
         if (request()->isPost()) {
-            //halt($_POST);
-            $county = new A();
-            $res = $county->county_add(input('post.'));
-            $mess = array(
-                'status' => $res['valid'],
-                'message' => $res['msg']
-            );
-            return $mess;
+                //halt($_POST);
+                $county = new A();
+                $res = $county->county_add(input('post.'));
+                $mess = array(
+                    'status' => $res['valid'],
+                    'message' => $res['msg']
+                );
+                return $mess;
         }
         $this->base();
         return $this->fetch();
@@ -41,10 +40,7 @@ class CountyArea extends Common
 
     public function countys_edit()
     {
-        $this->base();
-
         if (request()->isPost()) {
-
             $county = new A();
             $res = $county->county_edit(input('post.'));
             $mess = array(
@@ -55,18 +51,17 @@ class CountyArea extends Common
         }
         $id = input('param.county_id');
 
-        if ($id) {
-            $type_edit = new A();
-            $res = $type_edit->getSon(input('param.county_id'));
-            halt($id);
-            $arr = $this->GetTree($res, 0, 0);
-            $this->assign('arr', $arr);
-        }
-
-
+//        if ($id) {
+//            $type_edit = new A();
+//            $res = $type_edit->getSon(input('param.county_id'));
+////            halt($id);
+//            $arr = $this->GetTree($res, 0, 0);
+//            $this->assign('arr', $arr);
+//        }
         $data = db('countys')->where('county_states', 1)->where('county_id', $id)->find();
+        halt($data);
+        $this->base();
         $this->assign('data', $data);
-
         return $this->fetch();
     }
 

@@ -1,72 +1,127 @@
 {extend name="base"/}
  {block name="content"}
-		<div id="banner_index" class="swiper-container  lunbo_app_or_pc_show">
-			<div id="lunbo_pc"  class="swiper-container  lunbo_app_or_pc_show">
-				<div class="swiper-wrapper">
-	        {volist name="imgdata" id="imglist"}
-	            <div class="swiper-slide">	                
-	                <img   src="{$imglist.caro_img}"/>
-	                
-	            </div>	            
-	       	{/volist}  
-	       <!--{volist name="imgdata" id="imglist"}
-	            <div class="swiper-slide lunbo_app lunbo_app_or_pc">
-	                <img  src="{$imglist.caro_img}"/>
-	            </div>	            
-	       {/volist}  -->
-	        </div>
-	        <div class="swiper-pagination"></div>
-			</div>
-	        <div id="lunbo_app"  class="swiper-container  lunbo_app_or_pc_hidden">
-				<div class="swiper-wrapper">
-	        {volist name="shouimgdata" id="shouimglist"}
-	            <div class="swiper-slide">	                
-	                <img   src="{$shouimglist.caro_img}"/>	                
-	            </div>	            
-	       	{/volist}  
-	       <!--{volist name="imgdata" id="imglist"}
-	            <div class="swiper-slide lunbo_app lunbo_app_or_pc">
-	                <img  src="{$imglist.caro_img}"/>
-	            </div>	            
-	       {/volist}  -->
-	        </div>
-	        <div class="swiper-pagination"></div>
-			</div>
-		</div>
-		<div id="main_index">
-			<div>
-				<h3></h3>
-				<dl>
-					{foreach name="Pattern" item="vo"}
-					<dd>
-						<div class="contain">    
-			    			<img class="donut donut-front" src="{$vo['caro_img']}" alt="Donut front" />	   
-			    			<img class="donut donut-back" src="{$vo['imgtwo']}" alt="Donut back" />			    			
-			 			</div>
-						<span>{$vo['caro_name']}</span>
-					</dd>
-					{/foreach}
-					<dd class="await">
-						<div class="contain">    
-			    			<img class="" src="__STATIC__/index/img/genduo.jpg" alt="Donut front" style="border: 1px solid #848486; " />		    			    			
-			 			</div>
-						<span>更多服务</span>
-					</dd>
-				</dl>
-			</div>
-			<div>
-				<ul>
-				 {volist name="ModularData" id="mo"}
-					<li>
-						<a href="{:url($mo.action)}">
-							<img src="{$mo['caro_img']}"/>												
-							<h4><span>{$mo['caro_name']}</span></h4>						
-						</a>				
-					</li>
-				 {/volist}	
-				</ul>
-			</div>
-			
-		</div>	
-		
+<div id="banner">
+    <div id="lunbo_pc"  class="swiper-container  lunbo_app_or_pc_show">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide">
+                <img   src="__STATIC__/index/news/img/lunbo_2.jpg"/>
+            </div>
+            <div class="swiper-slide">
+                <img   src="__STATIC__/index/news/img/lunbo_1.jpg"/>
+            </div>
+            <div class="swiper-slide">
+                <img   src="__STATIC__/index/news/img/lunbo_3.jpg"/>
+            </div>
+            <div class="swiper-slide">
+                <img   src="__STATIC__/index/news/img/lunbo_4.jpg"/>
+            </div>
+        </div>
+        <div class="swiper-pagination"></div>
+    </div>
+</div>
+<div id="traceability">
+    <dl>
+        <dd>
+            <div class="contain">
+                <img  class="donut donut-front" src="__STATIC__/index/news/img/process_1.jpg" alt="">
+                <!--<img class="donut donut-front" src="__STATIC__/index/news/img/process_1.png" alt="Donut front" />-->
+            </div>
+            <span>农产品种植</span>
+        </dd>
+        <dd>
+            <div class="contain">
+                <img class="donut donut-front" src="__STATIC__/index/news/img/process_2.jpg" alt="Donut front" />
+                <!--<img class="donut donut-back" src="__STATIC__/index/news/img/process_.png" alt="Donut back" />-->
+            </div>
+            <span>农产品电子商务</span>
+        </dd>
+        <dd>
+            <div class="contain">
+                <img class="donut donut-front" src="__STATIC__/index/news/img/process_3.jpg" alt="Donut front" />
+                <!--<img class="donut donut-back" src="__STATIC__/index/news/img/process_.png" alt="Donut back" />-->
+            </div>
+            <span>农产品智慧仓储</span>
+        </dd>
+        <dd>
+            <div class="contain">
+                <img class="donut donut-front" src="__STATIC__/index/news/img/process_4.jpg" alt="Donut front" />
+                <!--<img class="donut donut-back" src="__STATIC__/index/news/img/process_.png" alt="Donut back" />-->
+            </div>
+            <span>农产品冷链配送</span>
+        </dd>
+        <dd>
+            <div class="contain">
+                <img class="donut donut-front" src="__STATIC__/index/news/img/process_5.jpg" alt="Donut front" />
+                <img class="donut donut-back" src="__STATIC__/index/news/img/process_5.png" alt="Donut back" />
+            </div>
+            <span>农产品大数据</span>
+        </dd>
+    </dl>
+</div>
+<div>
+
+</div>
+<div id="culture">
+    <div class="container">
+        <h2>企业文化</h2>
+        <div>
+            <p style="box-sizing: inherit; margin-bottom: 0.8em; color: rgb(42, 51, 60); text-align: center;">
+                <span style="box-sizing: inherit; font-size: 18px; font-family: 微软雅黑;">
+                    <strong style="box-sizing: inherit;">致力于成为农村电商行业的引领者</strong>
+                </span>
+            </p>
+            <p style="box-sizing: inherit; margin-bottom: 0.8em; color: rgb(42, 51, 60); ">
+                <span style="box-sizing: inherit; font-family: 微软雅黑 ">&nbsp;&nbsp;&nbsp;&nbsp;
+                    秦岭云投资建设的中国秦岭农产品电子商务产业园，是我省首个由企业主导投资并运营的农产品电商综合体项目，
+                    也是我省县域集运营、加工、仓储、物流于一体建设全最完善的全产业链电商生态模式。
+                        秦岭云在西安和杭州拥有运营和技术研发团队，
+                    公司秉承“绿色生态、健康生活”的经营理念，以“推动传统农业互联网产品优1化升级”为宗旨。
+                    建设出从“产品基地”到“平台卖家”到“智慧物流”到“目标客户”的全产业链电子商务模式。
+                </span>
+            </p>
+        </div>
+    </div>
+    <div class="about-img">
+        <img src="__STATIC__/index/news/img/index_2.jpg" alt="" class="cover-image">
+    </div>
+</div>
+<div id="share">
+    <section class="floor-section settled-in-company">
+        <h2>八大共享服务</h2>
+        <ul class="settle-main">
+            <li class="settle-item bangon">
+                <div class="null null-huanqiu"></div>
+                <!--共享办公-->
+            </li>
+            <li class="settle-item cangchu">
+                <!--共享仓储-->
+                <div class="null null-huanqiu"></div>
+            </li>
+            <li class="settle-item wuliu">
+                <!--共享物流-->
+                <div class="null null-huanqiu"></div>
+            </li>
+            <li class="settle-item jinrong">
+                <!--共享金融-->
+                <div class="null null-huanqiu"></div>
+            </li>
+            <li class="settle-item shuju">
+                <!--共享数据-->
+                <div class="null null-huanqiu"></div>
+            </li>
+            <li class="settle-item jiaotong">
+                <!--共享交通-->
+                <div class="null null-huanqiu"></div>
+            </li>
+            <li class="settle-item chanpin">
+                <!--共享产品-->
+                <div class="null null-huanqiu"></div>
+            </li>
+            <li class="settle-item fuwu">
+                <!--共享服务-->
+                <div class="null null-huanqiu"></div>
+            </li>
+        </ul>
+    </section>
+</div>
 {/block}

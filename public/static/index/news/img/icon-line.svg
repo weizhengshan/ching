@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="70px" height="13px" viewBox="0 0 70 13" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 45.2 (43514) - http://www.bohemiancoding.com/sketch -->
+    <title>img_装饰线</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <linearGradient x1="123.645781%" y1="100%" x2="-32.8734795%" y2="0%" id="linearGradient-1">
+            <stop stop-color="#FAD961" offset="0%"></stop>
+            <stop stop-color="#F79C1C" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="05关于（加入）我们" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="03加入我们_办公氛围" transform="translate(-391.000000, -577.000000)" fill="url(#linearGradient-1)">
+            <g id="福利待遇" transform="translate(391.000000, 577.000000)">
+                <polygon id="img_装饰线" points="60.5413077 0 54.1458692 6.63547802 47.75185 0 41.3748606 6.6155981 34.9992904 0 28.6052712 6.63400544 22.2119615 0 15.8356817 6.6155981 9.45940193 0 0 9.81479384 3.06964014 13 9.45940193 6.36967603 15.8221997 13 22.2112519 6.36967603 28.6010137 13 34.9985808 6.36967603 41.3620882 13 47.7511404 6.36967603 54.1401926 13 60.5413077 6.36967603 66.9041054 13 70 9.81479384"></polygon>
+            </g>
+        </g>
+    </g>
+</svg>

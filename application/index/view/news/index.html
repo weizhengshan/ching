@@ -1,52 +1,96 @@
-{extend name="base"/}
- {block name="content"}
-		{include file="public:xdao" /}
-		<div id="main_newslist">
-			<canvas id="demo-canvas" class="demo-canvas"></canvas>
-			{if condition="$newdata != NULL "}
-			<div class="introduction main_1 show"  >
-				<ul>
-					 {volist name="newdata" id="son"}
-					<li>
-						<a href="{:url('index/news/info',['id'=>$son.cont_id,'type_id'=>$son.cont_pid])}">
-							<div class="imgBox"><img src="{$son.cont_img}"/></div>
-							<div class="news_index_main_main">
-								<h3>{$son.cont_title}</h3>
-								<h4 class="clear">
-									<span class="f-left"><i>发表于   </i> {$son['createtime']|date="Y-m-d H:i",###}</span>
-									<span class="f-right"><i>作者: </i> 编辑</span>
-								</h4>
-							</div>
-						</a>
-					</li>
-					{/volist}
-				</ul>
-			</div>
-			<div class="pages">
-        		<h3>
-        						<span><a href="{:url('index/news/index',['page'=>1,'type_pid'=>$type_pid,'wen_id'=>$wenid])}">首页</a></span>
-        						{if condition="$page==1 || $page<'1'"}
-			        			{else /}
-			        			<span><a href="{:url('index/news/index',['page'=>$page-1,'type_pid'=>$type_pid,'wen_id'=>$wenid])}">上一页</a></span>
-			        			{/if}
-			        			<span>第<b>{$page}</b>页</span>
-			        			<span>共<b>{$maxPage}</b>页</span>
-			        			{if condition="$maxPage==$page || $maxPage<$page"}
-			        			{else /}
-			        			<span><a href="{:url('index/news/index',['page'=>$page+1,'type_pid'=>$type_pid,'wen_id'=>$wenid])}">下一页</a></span>
-			        			{/if}
-			        			<span><a href="{:url('index/news/index',['page'=>$maxPage,'type_pid'=>$type_pid,'wen_id'=>$wenid])}">尾页</a></span>
-        			
-        		</h3>
-			{else /}
-			<div class="nolist">	
-				<div>
-					<img src="__STATIC__/index/img/erweima_1.jpg"/>
-					<h3>暂无内容</h3>
-				</div>
-			</div>
-			{/if}
-        	</div>	
-		</div>
-	
-{/block}		
+﻿{extend name="base"/}
+{block name="content"}
+<section>
+    <h1 class="header-banner">
+        致力于成为农村电商行业的引领者
+    </h1>
+</section>
+<div id="main_news" >
+    <div class="news_list_page_met_16_3 met-news">
+        <div class="container">
+            <div class="col-md-3">
+                <div class="row">
+                    <aside class="sidebar_met_16_3 met-sidebar panel-body m-b-0" boxmh-h="" m-id="10" m-type="nocontent" style="margin-left: 0px; margin-right: 30px;">
+                        <h2 class="sidebar-tile">
+                            <a href="" tite="新闻资讯" class="    " target="_self">新闻资讯</a>
+                        </h2>
+                        <ul class="sidebar-column list-icons">
+                            {volist name="typeson" id="son"}
+                            <li>
+                                <a href="{:url('index/news/index',array('wen_id'=>$son['type_id']))}" title="{$son['type_name']}" class="">{$son['type_name']}</a>
+                            </li>
+                            {/volist}
+                        </ul>
+                        <h2 class="sidebar-tile"><span>联系我们</span></h2>
+                        <div class="side-tel met-editor">
+                            <p><span style="color: rgb(0, 0, 0);">
+                                    <strong>秦岭云电子商务有限公司</strong>
+                                </span>
+                            </p>
+                            <p>
+                                <span style="color: rgb(0, 0, 0);">地址：</span>
+                                西安市高新区绿地中心A座2204
+                            </p>
+                            <p>
+                                <span style="color: rgb(0, 0, 0);">电话：</span>
+                                400-029-1005
+                            </p>
+                        </div>
+                        <h2 class="sidebar-tile m-t-25"><span></span></h2>
+                    </aside>
+                </div>
+            </div>
+
+            <div class="col-md-9 met-news-body     pright">
+                <div class="row">
+                    <ol class="breadcrumb m-b-0 subcolumn-crumbs">
+                        <li class="breadcrumb-item">
+                            <a href="#" title="网站首页" class="icon wb-home">网站首页</a>
+                        </li>
+                        <li class="breadcrumb-item">
+                            <a href="#" title="新闻资讯" class="">新闻资讯</a>
+                        </li>
+                        <li class="breadcrumb-item">
+                            <a href="#" title="公司新闻" class="">{$twoLevel}</a>
+                        </li>
+                    </ol>
+                    <div class="met-news-list">
+                        {if condition="$data != NULL "}
+                        <ul class="ulstyle met-pager-ajax imagesize" data-scale="400x400" m-id="11">
+                            <!-- 极简模式 -->
+                            {volist name="data" id="v"}
+                                <li class="border-bottom1">
+                                    <h4>
+                                        <a href="" title="" target="_self">{$v['cont_title']}</a>
+                                    </h4>
+                                    <p class="des font-weight-300">{$v['cont_remarks']}</p>
+                                    <p class="info font-weight-300">
+                                        <span>{$v['createtime']|date='Y-m-d',###}</span>
+                                        <span class="go"><a href="{:url('index/news/info',array('id'=>$v['cont_id']))}">阅读详情>></a></span>
+                                    </p>
+
+                                </li>
+                            {/volist}
+                            {else /}
+                            <div class="nolist">
+                                <div>
+                                    <img src="__STATIC__/index/img/erweima_1.jpg"/>
+                                    <h3>暂无内容</h3>
+                                </div>
+                            </div>
+                            {/if}
+                        </ul>
+                        <div class="m-t-20 text-xs-center hidden-sm-down" m-type="nosysdata">
+                            <div class="met_pager">
+                                <span class="PreSpan">上一页</span>
+                                <a href="" class="Ahover">1</a>
+                                <span class="NextSpan">下一页</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{/block}

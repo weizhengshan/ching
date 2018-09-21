@@ -17,7 +17,7 @@ return [
     // 应用命名空间
     'app_namespace'          => 'app',
     // 应用调试模式
-    'app_debug'              => false,
+    'app_debug'              => true,
     // 应用Trace
     'app_trace'              => false,
     // 应用模式状态
@@ -243,6 +243,6 @@ return [
     404 => './static/404.html',
     // 还可以定义其它的HTTP status
     401 =>  APP_PATH.'401.html',
-    ]
-//    自定义配置
+    ],
+    'ADMIN_TITLE' => '秦岭云后台管理中心'
 ];

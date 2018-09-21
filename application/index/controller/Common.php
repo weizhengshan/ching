@@ -16,9 +16,16 @@ class Common  extends Controller
             $v['typeson']=db('types')->where('type_pid',$v['type_id'])->order('type_sort')->select();
             $topdata[$k]=$v;
         }
+//        halt($topdata);
 
-        //halt($topdata);
         $this->assign('topdata',$topdata);
+//        取控制器和方法
+        $request = request()->pathinfo();
+        $str = substr($request,6 );
+        $controller = substr($str,0 ,strpos($str,'/') );
+        $action = request()->action();
+        $name = 'index/' . $controller . '/' .$action;
+        $this->assign('name',$name);
         //店铺管理
         $shopdata=db('types')->where('type_pid',30)->select();
         //halt($shopdata);
@@ -34,7 +41,7 @@ class Common  extends Controller
         //底部导航
          $bottomdata=db('types')->where('type_pid',31)->select();
         foreach($bottomdata as $k=>$v)
-        {  
+        {
 
             //$v['typeson']=db('types')->where('type_pid',$v['type_id'])->select();
             if($v['priority']!=false)
@@ -58,6 +65,16 @@ class Common  extends Controller
        //halt($web);
         $this->assign('web',$web);
 
-    } 
+    }
+
+    public function action(){
+        $request = request()->pathinfo();
+        $str = substr($request,6 );
+        $controller = substr($str,0 ,strpos($str,'/') );
+        $action = request()->action();
+        $name = $controller . '/' .$action;
+//        halt($name);
+        return $name;
+    }
 }
 

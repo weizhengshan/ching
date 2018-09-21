@@ -38,9 +38,9 @@ $(function () {
     if (!/^[\w-]+(\.[\w-]+)*@[\w-]+(\.[\w-]+)+$/.test($email.val())) {
       // console.log('手机号码不正确！');
       $email.next('em').html('邮箱不正确！');
-      return false
+      return false;
     }else {
-      $email.next('em').html('')
+      $email.next('em').html('');
     }
     /*if ($address.val()=="") {
       $address.next('em').html('地址不能为空！');

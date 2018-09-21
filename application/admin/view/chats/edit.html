@@ -1,0 +1,41 @@
+{extend name="base"/}
+{block name="content"}
+<div id="dcWrap">
+    {include file="public:header" /}
+
+    <!-- dcHead 结束 -->
+    {include file="public:nav" /}
+    <div id="dcMain">
+        <!-- 当前位置 -->
+        <div id="urHere">{$Think.config.ADMIN_TITLE}<b>></b><strong>添加大事件</strong> </div>   <div class="mainBox" style="height:auto!important;height:550px;min-height:550px;">
+        <h3>添加大事件</h3>
+        <form action="{:url('chats/edit')}" id="chat_add" method="post">
+            <table width="100%" border="0" cellpadding="8" cellspacing="0" class="tableBasic">
+                <tr>
+                    <td width="80" align="right">时间</td>
+                    <td>
+                        <input type="text" id="date" name="date" value="{$list.date}" size="40" class="inpMain" readonly />
+                        <input type="hidden" id="chat_id" name="chat_id" value="{$list.chat_id}" size="40" class="inpMain" />
+                        <font style="display:none" class="adcounty_name" color='red'>时间不能为空！</font>
+                    </td>
+                </tr>
+                <tr>
+                    <td align="right">事件</td>
+                    <td>
+                        <input type="text" id="content" name="content" value="{$list.content}" size="40" class="inpMain" />
+                        <font style="display:none" class="adcounty_name" color='red'>事件不能为空！</font>
+                    </td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>
+                        <input  class="btn" type="submit"  value="提交" />
+                    </td>
+                </tr>
+            </table>
+        </form>
+
+    </div>
+    </div>
+</div>
+{/block}

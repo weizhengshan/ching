@@ -1,82 +1,71 @@
 {extend name="base"/}
  {block name="content"}
-	{include file="public:xdao" /}
 
-		<div id="main_newslist">
-			<canvas id="demo-canvas" class="demo-canvas"></canvas>
-			{if condition="$res != NULL "}
-			<div class="recruitment">
-				<div class="recruitment_title" ><!--<img src="__STATIC__/index/img/timg (1).jpg">--></div>
+<section>
+	<h1 class="header-banner">
+		致力于成为农村电商行业的引领者
+	</h1>
+</section>
+<div id="main_recruit">
+	<div class="tab" >
+		<ul>
+			<li class="btn primary" _attr="0">热招职位</li>
+			<li class="btn" _attr="1">办公氛围</li>
+		</ul>
+	</div>
+	<div class="tab-content" >
+		<div data-name="热招职位" class="tab-item position-job" >
+			<div  class="container">
+				<p  class="intro">
+					<span  class="icon"></span>
+					简历投递邮箱：clc@chinlingcloud.com ，邮件主题标注应聘岗位+已工作年限+姓名
+				</p>
+				{volist name="res" id="vo"}
+				<section  class="job">
+					<h3  class="job-title weight">{$vo['position']}</h3>
+					<p class="cli_show_hide_zhi">
+						{$vo['rec_text']}
+					</p>
+				</section>
+				<hr style="margin-top: 50px;margin-bottom: 50px;background: #DDDDDD;border: none;height: 1px;"/>
+				{/volist}
+			</div>
+			<div class="pages">
+				<h3>
+					<span><a href="{:url('index/news/recruit',['page'=>1,'wen_id'=>$wenid,'type_pid'=>$type_pid])}">首页</a></span>
+					{if condition="$page==1 || $page<'1'"}
+					{else /}
+					<span><a href="{:url('index/news/recruit',['page'=>$page-1,'wen_id'=>$wenid,'type_pid'=>$type_pid])}">上一页</a></span>
+					{/if}
+					<span>第<b>{$page}</b>页</span>
 
-				<div class="recruitment_content clear">
-					<ul>
-					{volist name="res" id="vo"}	
-						<li>
-							<h3 class="">
-								<span>招聘职位：<b>{$vo['position']}</b></span>
-								<span>招聘人数：<b>{$vo['num']}</b>人</span>
-								<span >关注数：<b id="zhi{$vo['rec_id']}">{$vo['follow']}</b></span>
-							</h3>
-							<h4 class="clear">
-								<span>工作地点：<b>{$vo['place']}</b></span>
-								<span>职位性质：<b>{$vo['nature']?'全职':'兼职'}</b></span>
-								<span>发布时间：<b>{$vo['createtime']|date="Y-m-d",###}</b></span>
-								<span class="cli_show_hide" _id="{$vo['rec_id']}" ><img src="__STATIC__/index/img/f5.png" class="kai"></span>
-							</h4>
-							<h5 class="cli_show_hide_zhi">
-								{$vo['rec_text']}
-							</h5>
-						</li>
-						{/volist}						
-					</ul>
-					<div class="pages">
-			        		<h3>
-			        			<span><a href="{:url('index/news/recruit',['page'=>1,'wen_id'=>$wenid,'type_pid'=>$type_pid])}">首页</a></span>
-			        			{if condition="$page==1 || $page<'1'"}
-			        			{else /}
-			        			<span><a href="{:url('index/news/recruit',['page'=>$page-1,'wen_id'=>$wenid,'type_pid'=>$type_pid])}">上一页</a></span>
-			        			{/if}
-			        			<span>第<b>{$page}</b>页</span>
-			        			<span>共<b>{$maxPage}</b>页</span>
-			        			{if condition="$maxPage==$page || $maxPage<$page"}
-			        			{else /}
-			        			<span><a href="{:url('index/news/recruit',['page'=>$page+1,'wen_id'=>$wenid,'type_pid'=>$type_pid])}">下一页</a></span>
-			        			{/if}
-			        			<span><a href="{:url('index/news/recruit',['page'=>$maxPage,'wen_id'=>$wenid,'type_pid'=>$type_pid])}">尾页</a></span>
-			        			
-			        		</h3>
-			        	</div>
-				</div>				
+					{if condition="$maxPage==$page || $maxPage<$page"}
+					{else /}
+					<span><a href="{:url('index/news/recruit',['page'=>$page+1,'wen_id'=>$wenid,'type_pid'=>$type_pid])}">下一页</a></span>
+					{/if}
+
+					<span><a href="{:url('index/news/recruit',['page'=>$maxPage,'wen_id'=>$wenid,'type_pid'=>$type_pid])}">尾页</a></span>
+					<span style="border: 0">共<b>{$maxPage}</b>页</span>
+				</h3>
 			</div>
-			{else /}
-			<div class="nolist" >	
-				<div>
-					<img src="__STATIC__/index/img/erweima_1.jpg"/>
-					<h3>暂无内容</h3>
-				</div>
-			</div>
-			{/if}
 		</div>
+		<div data-name="办公氛围"  class="tab-item atmosphere" style="display: none">
+			<div class="container">
+				<section class="company-welfare">
+					<h3 class="weight">福利待遇</h3>
+					<ul>
+						<!--<li>① 氪空间为小伙伴提供了工资全额为基数的五险一金并为大家购买了补充医疗保险，使得大家在忘我的工作时得到充分的保障。 </li>-->
+						<!--<li>② 行政部也为大家准备了早餐和午餐（外地同事是餐补），虽然餐饮一向是众口难调，但从各位同学逐渐升高的体重来看，该举措还是深得人心滴。</li>-->
+						<!--<li>③ 氪空间可为大家办理工作居住证，符合条件的童鞋都可以沟通到人事部进行咨询和办理。</li>-->
+						<!--<li>④ 公司在假期方面为大家提供了带薪年假、带薪病假，其余假日也全部按照国家规定执行。</li>-->
+						<!--<li>⑤ 值得一说的是，在社区内，运营同学也会为大家提供高频词的各种试吃和体验活动，让大小吃货都各饱口福，很多有意义的体验也是被赞不绝口。如此神奇的氪空间和众多优秀的小伙伴在等待着你，还在犹豫个啥子嘞。</li>-->
+					</ul>
+				</section>
+				<hr style="margin-top: 50px;margin-bottom: 50px;background: #DDDDDD;border: none;height: 1px;"/>
+			</div>
+		</div>
+	</div>
+</div>
 
-<script type="text/javascript">	
- function ajax_re(_id)
-   {
-  var oldtext=$('#zhi'+_id).text();
-       $.ajax({
-       url:"{:url('index/news/update_a')}",
-       type:"post",
-       dataType:"json",
-       data:"id="+_id,
-       success:function(res){
-        //console.log(res);
-        
-        $('#zhi'+res['rec_id']).text(res['follow']);
-      
-         
-      }
-    }); 
-  return oldtext;
-   
-}
-</script>		
+
 {/block}		

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="20px" height="23px" viewBox="0 0 20 23" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 45.2 (43514) - http://www.bohemiancoding.com/sketch -->
+    <title>icon_简历</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <rect id="path-1" x="0" y="0" width="20" height="23" rx="4"></rect>
+    </defs>
+    <g id="05关于（加入）我们" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="02加入我们_热招职位" transform="translate(-391.000000, -580.000000)">
+            <g id="icon_简历" transform="translate(391.000000, 580.000000)">
+                <g id="Rectangle">
+                    <use fill="#FFFFFF" fill-rule="evenodd" xlink:href="#path-1"></use>
+                    <rect stroke="#333333" stroke-width="1.6" x="0.8" y="0.8" width="18.4" height="21.4" rx="4"></rect>
+                </g>
+                <path d="M4.61538462,19.0133333 L15.3846154,19.0133333" id="Line-2" stroke="#333333" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path>
+                <path d="M4.61538462,15.9466667 L15.3846154,15.9466667" id="Line-2" stroke="#333333" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path>
+                <ellipse id="Oval-16" stroke="#FF9D00" stroke-width="1.6" fill="#FFFFFF" cx="10" cy="6.13333333" rx="2.30769231" ry="2.3"></ellipse>
+                <path d="M9.99605619,13.0342692 C11.6953939,13.0342692 13.8495343,13.1936732 13.8495343,11.5 C13.8495343,9.80632677 11.6953939,8.43333333 9.99605619,8.43333333 C8.2967185,8.43333333 6.15384615,9.80632677 6.15384615,11.5 C6.15384615,13.1936732 8.2967185,13.0342692 9.99605619,13.0342692 Z" id="Oval-16" stroke="#FF9D00" stroke-width="1.6" fill="#FFFFFF"></path>
+            </g>
+        </g>
+    </g>
+</svg>

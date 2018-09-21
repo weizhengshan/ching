@@ -1,0 +1,38 @@
+{extend name="base"/}
+{block name="content"}
+<div id="dcWrap">
+    {include file="public:header" /}
+
+    <!-- dcHead 结束 -->
+    {include file="public:nav" /}
+    <div id="dcMain">
+    <!-- 当前位置 -->
+    <div id="urHere">{$Think.config.ADMIN_TITLE}<b>></b><strong>大事件列表</strong> </div>   <div class="mainBox" style="height:auto!important;height:550px;min-height:550px;">
+    <h3><a href="{:url('admin/chats/add')}" class="actionBtn add">添加事件</a>大事件列表</h3>
+    <table width="100%" border="0" cellpadding="8" cellspacing="0" class="tableBasic">
+        <tr>
+            <th  align="left">编号</th>
+            <th  align="left">日期</th>
+            <th align="left">事件</th>
+            <th align="left">是否显示</th>
+            <th align="left">操作</th>
+        </tr>
+        {foreach name="arr" item="vo"}
+        <tr>
+            <td>{$vo['chat_id']}</td>
+            <td align="left">{$vo['date']|date="Y年m月",### }</td>
+            <td>{$vo['content']}</td>
+            <td>显示</td>
+            <td>
+                <a  class="layui-btn layui-btn-sm" href="{:url('admin/chats/edit',['chat_id'=>$vo.chat_id])}">编辑</a>
+                <a  class="layui-btn layui-btn-sm" href="{:url('admin/chats/delete',array('chat_id'=>$vo['chat_id']))}">删除</a>
+            </td>
+        </tr>
+        {/foreach}
+    </table>
+</div>
+</div>
+</div>
+
+
+{/block}

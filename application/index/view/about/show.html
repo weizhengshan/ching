@@ -1,34 +1,62 @@
 {extend name="base"/}
- {block name="content"}
-		<!--<div id="nav_companylntroduction">-->
-			<!--<ul>-->
-				<!--{volist name="typeson" id="son"}-->
-				<!--<li _type="1" {if condition="$son.type_id==$wenid"} class="on" {/if}>					-->
-					<!--<a href="{:url('index/about/show',['type_pid'=>$type['type_id'],'wen_id'=>$son.type_id])}">{$son['type_name']}</a>				-->
-				<!--</li>-->
-				<!--{/volist}-->
-			<!--</ul>-->
-		<!--</div>-->
-		<!-- 加载图片的 待定无 开始-->
-		<div id="banner_companylntroduction"></div>
-		<!-- 加载图片的 待定无 结束-->
-		
-		<div id="main_newsdetails">
-			<canvas id="demo-canvas" class="demo-canvas"></canvas>
-			{if condition="$newdata != NULL "}
-			<h3 class="news_title">{$newdata['cont_title']}</h3>
-			<div class="news_main">
-				{$newdata['cont_text']}
-			</div>
-			{else /}
-			<div class="nolist">	
-					<div>
-						<img src="__STATIC__/index/img/erweima_1.jpg"/>
-						<h3>暂无内容</h3>
-					</div>
-			</div>
-			{/if}
-	    </div>
-	
-	
+{block name="content"}
+<section>
+    <h1 class="header-banner">
+        致力于成为农村电商行业的引领者
+    </h1>
+</section>
+<div id="main_about_us">
+    <section class="about-me">
+        <h3> 关于秦岭云</h3>
+        <div class="container" style="padding-top: 10px;">
+            <img src="__STATIC__/index/news/img/qy_guanyu.jpg" width="500" height="330" alt="秦岭云电商">
+            <div class="text-outer">
+                <p style="font-size: 16px;">
+                    陕西秦岭云电子商务有限公司，成立于2015年6月。公司位于陕西省镇安县午峪工业集中区，总占地60亩，拥有生产及办公配套35000平方米。2017年5月，公司获得龙鼎资本7000万元人民币的A轮投资，企业估值达3.7亿元人民币。公司旗下拥有中国秦岭农产品电子商务产业园、秦岭云电商众创空间、陕西合曼农业科技有限公司三大产业模块，各产业模块总投资超过4亿元人民币，是我省农业电商龙头企业。
+                    &nbsp;&nbsp; &nbsp;
+                </p>
+                <p style="font-size: 16px;">
+                    秦岭云专注区域传统农业互联网产品升级优化，提升本土农产品在全国电子商务领域的影响力，填充本地电商企业的空白。打通精准扶贫农产品上行渠道，将会带动贫困人口超过30000人，带动就创业3500人次以上。
+                </p>
+                <p style="font-size: 16px;">
+                    公司始终以“兴农强民”为已任，坚持“承诺、诚信、奉献”的态度，通过高端的科研技术与现代管理理念、专业化的市场运作，为客户提供高质量产品和优质服务体系。
+                </p>
+            </div>
+        </div>
+    </section>
+    <section class="big-news">
+        <h3>大事记</h3>
+        <div class="container">
+            <ul>
+                <li class="left fixed">
+                    <div class="inner">
+                        <label></label>
+                        <p></p>
+                        <span class="icon"></span>
+                    </div>
+                </li>
+                {volist name="list" id="vo" mod="2" }
+                {eq name="mod" value="1"}
+                <li class="left">
+                    <div class="inner">
+                        <label>{$vo['date'|date="Y年m月",###]}</label>
+                        <p>{$vo['content']}</p>
+                        <span class="icon"></span>
+                    </div>
+                </li>
+                {/eq}
+                {eq name="mod" value="0"}
+                <li class="right">
+                    <div class="inner">
+                        <label>{$vo['date'|date="Y年m月",###]}</label>
+                        <p>{$vo['content']}</p>
+                        <span class="icon"></span>
+                    </div>
+                </li>
+                {/eq}
+                {/volist}
+            </ul>
+        </div>
+    </section>
+</div>
 {/block}
